@@ -1,10 +1,12 @@
 package org.example;
 
 
-import org.example.confirmation.type.impl.Email;
-import org.example.order.Order;
-import org.example.order.publish.OrderPublisher;
-import org.example.payment.type.impl.PaymentUPI;
+import org.example.service.confirmation.type.impl.Email;
+import org.example.helper.OrderManagementHelper;
+import org.example.model.Order;
+import org.example.event.publish.OrderPublisher;
+import org.example.service.payment.type.impl.PaymentPayU;
+import org.example.service.payment.type.impl.PaymentUPI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -37,7 +39,8 @@ public class OrderManagementApp implements CommandLineRunner {
 
         Order order = Order.builder()
                 .orderId("O1")
-                .paymentType(PaymentUPI.BEAN_ID)
+                .orderDate(OrderManagementHelper.getInstance().toLocalDate("2024-09-04"))
+                .paymentType(PaymentPayU.BEAN_ID)
                 .amount(599.99)
                 .confirmationType(Email.BEAN_ID)
                 .build();
