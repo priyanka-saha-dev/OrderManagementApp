@@ -12,19 +12,19 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootApp implements CommandLineRunner {
+public class OrderManagementApp implements CommandLineRunner {
 
-    private static final Logger logger = LoggerFactory.getLogger(SpringBootApp.class);
+    private static final Logger logger = LoggerFactory.getLogger(OrderManagementApp.class);
 
     private final OrderPublisher orderPublisher;
 
-    public SpringBootApp(OrderPublisher orderPublisher) {
+    public OrderManagementApp(OrderPublisher orderPublisher) {
         this.orderPublisher = orderPublisher;
     }
 
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootApp.class, args);
+        SpringApplication.run(OrderManagementApp.class, args);
     }
 
     @Override
